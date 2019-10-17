@@ -26,8 +26,9 @@ namespace ContosoUniversity.Pages.Students
         public PaginatedList<Student> Student { get;set; }
 
         public async Task OnGetAsync(string sortOrder,
-    string currentFilter, string searchString, int? pageIndex)
+            string currentFilter, string searchString, int? pageIndex)
         {
+            CurrentSort = sortOrder;
             NameSort = String.IsNullOrEmpty(sortOrder) ? "name_desc" : "";
             DateSort = sortOrder == "Date" ? "date_desc" : "Date";
             if (searchString != null)
